@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://github.com/Matheusmelio/login-cadastro.git">
+</head>
+<body>
+    <div class="container" id="login-container">
+        <h2>LOGOMARCA</h2>
+        <form onsubmit="entrar(event)">
+          <label for="login">Login:</label>
+          <input type="text" id="login" name="login" />
+    
+          <label for="senha">Senha:</label>
+          <input type="password" id="senha" name="senha" />
+    
+          <div class="botoes">
+            <button type="submit" class="btn-azul">Entrar</button>
+            <button type="button" class="btn-branco" onclick="limparLogin()">cancelar</button>
+          </div>
+    
+          <a href="#" class="redefinir">cadastrar</a>
+        </form>
+      </div>
+    
+      <!-- TELA DE CADASTRO -->
+      <div class="container" id="cadastro-container">
+        <span class="sair" onclick="voltarLogin()">sair</span>
+        <h3>Cadastro de produto</h3>
+    
+        <form onsubmit="cadastrar(event)">
+          <label for="campo1">Login</label>
+          <input type="text" id="campo1" name="campo1" />
+    
+          <label for="campo2">senha</label>
+          <input type="text" id="campo2" name="campo2" />
+    
+          <label for="campo3">Repetir senha</label>
+          <input type="text" id="campo3" name="campo3" />
+    
+          <div class="botoes">
+            <button type="submit" class="btn-azul">Cadastrar</button>
+            <button type="button" class="btn-branco" onclick="limparCadastro()">cancelar</button>
+          </div>
+        </form>
+      </div>
+    
+      <script>
+        const loginContainer = document.getElementById("login-container");
+        const cadastroContainer = document.getElementById("cadastro-container");
+    
+        function entrar(event) {
+          event.preventDefault();
+          loginContainer.style.display = "none";
+          cadastroContainer.style.display = "block";
+        }
+    
+        function voltarLogin() {
+          cadastroContainer.style.display = "none";
+          loginContainer.style.display = "block";
+        }
+    
+        function limparLogin() {
+          document.getElementById("login").value = "";
+          document.getElementById("senha").value = "";
+        }
+    
+        function limparCadastro() {
+          document.getElementById("campo1").value = "";
+          document.getElementById("campo2").value = "";
+          document.getElementById("campo3").value = "";
+        }
+    
+        function cadastrar(event) {
+          event.preventDefault();
+          alert("Produto cadastrado!");
+          limparCadastro();
+          voltarLogin();
+        }
+      </script>
+    
+    </body>
+    </html>
+</body>
+</html>m
